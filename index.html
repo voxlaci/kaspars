@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="lv">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Official website concept for Latvian conductor Kaspars Putniņš: biography, artistic work, recordings, press resources and booking contacts.">
-    <title>Kaspars Putniņš | Conductor</title>
+    <meta name="description" content="Latviešu diriģenta Kaspara Putniņa mājaslapas koncepts: biogrāfija, mākslinieciskā darbība, ieraksti, preses materiāli un kontakti.">
+    <title>Kaspars Putniņš | Diriģents</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -12,182 +12,188 @@
   </head>
   <body>
     <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="Kaspars Putniņš home">
+      <a class="brand" href="#top" aria-label="Kaspara Putniņa sākumlapa" data-i18n-attr="aria-label:brandAria">
         <span class="brand-mark">KP</span>
         <span>Kaspars Putniņš</span>
       </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
-        <span></span>
-        <span></span>
-      </button>
-      <nav class="site-nav" id="site-nav" data-nav>
-        <a href="#biography">Biography</a>
-        <a href="#positions">Positions</a>
-        <a href="#recordings">Recordings</a>
-        <a href="#press">Press</a>
-        <a class="nav-action" href="#contact">Booking</a>
-      </nav>
+      <div class="header-actions">
+        <nav class="site-nav" id="site-nav" data-nav>
+          <a href="#biography" data-i18n="navBiography">Biogrāfija</a>
+          <a href="#positions" data-i18n="navPositions">Amati</a>
+          <a href="#recordings" data-i18n="navRecordings">Ieraksti</a>
+          <a href="#press" data-i18n="navPress">Presei</a>
+          <a class="nav-action" href="#contact" data-i18n="navBooking">Kontakti</a>
+        </nav>
+        <div class="language-switch" aria-label="Valodas izvēle" data-i18n-attr="aria-label:languageAria">
+          <button class="is-active" type="button" data-lang="lv">LV</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </header>
 
     <main id="top">
       <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Conductor | Artistic Director | Contemporary Choral Music</p>
+          <p class="eyebrow" data-i18n="heroEyebrow">Diriģents | Mākslinieciskais vadītājs | Laikmetīgā kormūzika</p>
           <h1>Kaspars Putniņš</h1>
-          <p class="lead">An internationally respected Latvian conductor shaping the sound, silence and expressive future of professional choral performance.</p>
+          <p class="lead" data-i18n="heroLead">Starptautiski novērtēts latviešu diriģents, kurš veido profesionālās kormūzikas skaņas, klusuma un izteiksmes nākotni.</p>
           <div class="hero-actions">
-            <a class="button primary" href="#recordings">Explore Recordings</a>
-            <a class="button ghost" href="#contact">Invite Kaspars</a>
+            <a class="button primary" href="#recordings" data-i18n="heroPrimary">Ieraksti</a>
+            <a class="button ghost" href="#contact" data-i18n="heroSecondary">Uzaicināt Kasparu</a>
           </div>
         </div>
         <figure class="hero-portrait">
-          <img src="assets/kaspars-putnins.jpg" alt="Portrait of conductor Kaspars Putniņš">
-          <figcaption>Photo source: Tenso Europe Chamber Choir</figcaption>
+          <img src="assets/kaspars-putnins.jpg" alt="Diriģenta Kaspara Putniņa portrets" data-i18n-attr="alt:portraitAlt">
+          <figcaption data-i18n="photoCredit">Foto avots: Tenso Europe Chamber Choir</figcaption>
         </figure>
-        <div class="hero-notes" aria-label="Artistic keywords">
-          <span>Sound</span>
-          <span>Silence</span>
-          <span>Space</span>
-          <span>Transformation</span>
+        <div class="hero-notes" aria-label="Mākslinieciskie atslēgvārdi" data-i18n-attr="aria-label:keywordsAria">
+          <span data-i18n="noteSound">Skaņa</span>
+          <span data-i18n="noteSilence">Klusums</span>
+          <span data-i18n="noteSpace">Telpa</span>
+          <span data-i18n="noteTransformation">Pārvērtība</span>
         </div>
       </section>
 
       <section class="intro-band">
-        <p>From the Baltic choral tradition to the front line of new music, Putniņš is known for building performances where precision, risk and atmosphere become one musical language.</p>
+        <p data-i18n="introBand">No Baltijas kordziedāšanas tradīcijas līdz jaunās mūzikas priekšplānam Putniņš veido priekšnesumus, kuros precizitāte, risks un atmosfēra kļūst par vienotu muzikālu valodu.</p>
       </section>
 
       <section class="section split" id="biography">
         <div>
-          <p class="section-kicker">Biography</p>
-          <h2>A voice for living repertoire.</h2>
+          <p class="section-kicker" data-i18n="bioKicker">Biogrāfija</p>
+          <h2 data-i18n="bioTitle">Balss dzīvam repertuāram.</h2>
         </div>
         <div class="body-copy">
-          <p>Born in Riga, Latvia, Kaspars Putniņš studied at the Latvian Academy of Music and the Guildhall School of Music and Drama in London. His career has been defined by professional choir leadership, close collaboration with composers and a sustained commitment to expanding what a choir can be.</p>
-          <p>His work connects Renaissance clarity, Orthodox and Baltic sacred traditions, Romantic depth and contemporary sonic experimentation. Across Europe and beyond, he is sought out for performances that treat the choir as an instrument of color, breath, architecture and human presence.</p>
+          <p data-i18n="bioP1">Rīgā dzimušais Kaspars Putniņš studējis Latvijas Mūzikas akadēmijā un Gildholas Mūzikas un drāmas skolā Londonā. Viņa karjeru raksturo profesionālu koru vadība, cieša sadarbība ar komponistiem un konsekventa vēlme paplašināt priekšstatu par to, kas koris var būt.</p>
+          <p data-i18n="bioP2">Viņa darbs savieno renesanses skaidrību, pareizticīgo un Baltijas sakrālās tradīcijas, romantisma dziļumu un laikmetīgus skaņas meklējumus. Eiropā un ārpus tās Putniņš tiek aicināts veidot priekšnesumus, kuros koris kļūst par krāsas, elpas, arhitektūras un cilvēciskas klātbūtnes instrumentu.</p>
         </div>
       </section>
 
       <section class="section" id="positions">
         <div class="section-heading">
-          <p class="section-kicker">Major Positions</p>
-          <h2>Leadership across the professional choral world.</h2>
+          <p class="section-kicker" data-i18n="positionsKicker">Galvenie amati</p>
+          <h2 data-i18n="positionsTitle">Vadība profesionālās kormūzikas pasaulē.</h2>
         </div>
         <div class="position-grid">
           <article class="position-card">
-            <span class="date">Since 1994</span>
-            <h3>Latvian Radio Choir</h3>
-            <p>Chief Conductor, and Artistic Director since 2024. A central ensemble in contemporary Baltic choral culture.</p>
+            <span class="date" data-i18n="since1994">Kopš 1994</span>
+            <h3 data-i18n="latvianRadioChoir">Latvijas Radio koris</h3>
+            <p data-i18n="positionLRC">Galvenais diriģents un kopš 2024. gada mākslinieciskais vadītājs. Viens no būtiskākajiem ansambļiem laikmetīgajā Baltijas kormūzikā.</p>
           </article>
           <article class="position-card">
             <span class="date">2014-2021</span>
-            <h3>Estonian Philharmonic Chamber Choir</h3>
-            <p>Chief Conductor and Artistic Director, including award-winning recordings of Arvo Pärt and Alfred Schnittke.</p>
+            <h3 data-i18n="epcc">Igaunijas Filharmonijas kamerkoris</h3>
+            <p data-i18n="positionEPCC">Galvenais diriģents un mākslinieciskais vadītājs, tostarp godalgotu Arvo Pērta un Alfrēda Šnitkes ierakstu vadītājs.</p>
           </article>
           <article class="position-card">
-            <span class="date">Since 2021</span>
-            <h3>Swedish Radio Choir</h3>
-            <p>Chief Conductor of one of Europe’s defining professional choirs, continuing a lineage shaped by Eric Ericson and Tõnu Kaljuste.</p>
+            <span class="date" data-i18n="since2021">Kopš 2021</span>
+            <h3 data-i18n="swedishRadioChoir">Zviedrijas Radio koris</h3>
+            <p data-i18n="positionSRC">Galvenais diriģents vienam no Eiropas nozīmīgākajiem profesionālajiem koriem, turpinot Ērika Ēriksona un Tenu Kaljustes veidoto māksliniecisko līniju.</p>
           </article>
         </div>
       </section>
 
       <section class="section repertoire">
         <div class="section-heading narrow">
-          <p class="section-kicker">Artistic Identity</p>
-          <h2>Repertoire as a living acoustic space.</h2>
+          <p class="section-kicker" data-i18n="identityKicker">Mākslinieciskā identitāte</p>
+          <h2 data-i18n="identityTitle">Repertuārs kā dzīva akustiska telpa.</h2>
         </div>
         <div class="repertoire-grid">
           <div>
-            <h3>Contemporary Music</h3>
-            <p>Arvo Pärt, Alfred Schnittke, Pēteris Vasks, Ēriks Ešenvalds, Baltic composers and new European voices.</p>
+            <h3 data-i18n="repContemporaryTitle">Laikmetīgā mūzika</h3>
+            <p data-i18n="repContemporaryText">Arvo Pērts, Alfrēds Šnitke, Pēteris Vasks, Ēriks Ešenvalds, Baltijas komponisti un jaunas Eiropas balsis.</p>
           </div>
           <div>
-            <h3>Sacred Sound</h3>
-            <p>Orthodox repertoire, Rachmaninoff, Baltic sacred works and modern spiritual music.</p>
+            <h3 data-i18n="repSacredTitle">Sakrālā skaņa</h3>
+            <p data-i18n="repSacredText">Pareizticīgo repertuārs, Rahmaņinovs, Baltijas sakrālie darbi un mūsdienu garīgā mūzika.</p>
           </div>
           <div>
-            <h3>Guest Conducting</h3>
-            <p>Collaborations with RIAS Kammerchor, SWR Vokalensemble, Collegium Vocale Gent, Netherlands Radio Choir and more.</p>
+            <h3 data-i18n="repGuestTitle">Viesdiriģēšana</h3>
+            <p data-i18n="repGuestText">Sadarbība ar RIAS Kammerchor, SWR Vokalensemble, Collegium Vocale Gent, Nīderlandes Radio kori un citiem ansambļiem.</p>
           </div>
           <div>
-            <h3>Education</h3>
-            <p>Masterclasses, workshops and professional training for conductors, composers and vocal ensembles.</p>
+            <h3 data-i18n="repEducationTitle">Izglītība</h3>
+            <p data-i18n="repEducationText">Meistarklases, darbnīcas un profesionāla apmācība diriģentiem, komponistiem un vokālajiem ansambļiem.</p>
           </div>
         </div>
       </section>
 
       <section class="section recordings" id="recordings">
         <div class="section-heading">
-          <p class="section-kicker">Recordings</p>
-          <h2>Featured projects and recognition.</h2>
+          <p class="section-kicker" data-i18n="recordingsKicker">Ieraksti</p>
+          <h2 data-i18n="recordingsTitle">Izcelti projekti un atzinība.</h2>
         </div>
         <div class="recording-list">
           <article>
             <span>2018</span>
-            <h3>Arvo Pärt: Magnificat / Alfred Schnittke: Psalms of Repentance</h3>
-            <p>Recorded with the Estonian Philharmonic Chamber Choir; recognized with major international critical acclaim.</p>
+            <h3 data-i18n="recordingPartTitle">Arvo Pērts: Magnificat / Alfrēds Šnitke: Grēku nožēlas psalmi</h3>
+            <p data-i18n="recordingPartText">Ierakstīts ar Igaunijas Filharmonijas kamerkori; guvis nozīmīgu starptautisku kritikas atzinību.</p>
           </article>
           <article>
-            <span>Ongoing</span>
-            <h3>New Choral Music</h3>
-            <p>Premieres and recordings with composers across the Baltic region and wider contemporary music field.</p>
+            <span data-i18n="ongoing">Pastāvīgi</span>
+            <h3 data-i18n="recordingNewTitle">Jaunā kormūzika</h3>
+            <p data-i18n="recordingNewText">Pirmatskaņojumi un ieraksti ar komponistiem Baltijas reģionā un plašākā laikmetīgās mūzikas laukā.</p>
           </article>
           <article>
-            <span>Catalog</span>
-            <h3>Latvian Radio Choir</h3>
-            <p>A broad discography spanning experimental works, sacred repertoire, Baltic music and international collaborations.</p>
+            <span data-i18n="catalog">Katalogs</span>
+            <h3 data-i18n="latvianRadioChoir">Latvijas Radio koris</h3>
+            <p data-i18n="recordingCatalogText">Plaša diskogrāfija ar eksperimentāliem darbiem, sakrālo repertuāru, Baltijas mūziku un starptautiskām sadarbībām.</p>
           </article>
         </div>
       </section>
 
       <section class="section press-section" id="press">
         <div>
-          <p class="section-kicker">Press Kit</p>
-          <h2>For presenters, festivals and media.</h2>
+          <p class="section-kicker" data-i18n="pressKicker">Presei</p>
+          <h2 data-i18n="pressTitle">Koncertorganizatoriem, festivāliem un medijiem.</h2>
         </div>
         <div class="press-actions">
-          <a href="#" aria-disabled="true">Short Biography</a>
-          <a href="#" aria-disabled="true">High-Resolution Photos</a>
-          <a href="#" aria-disabled="true">Selected Repertoire</a>
-          <a href="#" aria-disabled="true">Technical Rider</a>
+          <a href="#" aria-disabled="true" data-i18n="pressBio">Īsā biogrāfija</a>
+          <a href="#" aria-disabled="true" data-i18n="pressPhotos">Augstas izšķirtspējas foto</a>
+          <a href="#" aria-disabled="true" data-i18n="pressRepertoire">Izlases repertuārs</a>
+          <a href="#" aria-disabled="true" data-i18n="pressRider">Tehniskā informācija</a>
         </div>
       </section>
 
       <section class="section contact" id="contact">
         <div>
-          <p class="section-kicker">Booking</p>
-          <h2>Guest conducting, masterclasses and artistic projects.</h2>
+          <p class="section-kicker" data-i18n="contactKicker">Kontakti</p>
+          <h2 data-i18n="contactTitle">Viesdiriģēšana, meistarklases un mākslinieciski projekti.</h2>
         </div>
         <form class="contact-form">
           <label>
-            Name
+            <span data-i18n="formName">Vārds</span>
             <input type="text" name="name" autocomplete="name">
           </label>
           <label>
-            Email
+            <span data-i18n="formEmail">E-pasts</span>
             <input type="email" name="email" autocomplete="email">
           </label>
           <label>
-            Project
+            <span data-i18n="formProject">Projekts</span>
             <select name="project">
-              <option>Guest conducting</option>
-              <option>Masterclass</option>
-              <option>Festival appearance</option>
-              <option>Recording project</option>
+              <option data-i18n="projectGuest">Viesdiriģēšana</option>
+              <option data-i18n="projectMasterclass">Meistarklase</option>
+              <option data-i18n="projectFestival">Festivāla uzstāšanās</option>
+              <option data-i18n="projectRecording">Ierakstu projekts</option>
             </select>
           </label>
           <label>
-            Message
+            <span data-i18n="formMessage">Ziņa</span>
             <textarea name="message" rows="4"></textarea>
           </label>
-          <button class="button primary" type="submit">Prepare Inquiry</button>
+          <button class="button primary" type="submit" data-i18n="formButton">Sagatavot pieprasījumu</button>
         </form>
       </section>
     </main>
 
     <footer class="site-footer">
       <p>Kaspars Putniņš</p>
-      <p>Website concept for personal artistic representation. Biographical claims checked against 2026 public festival biography.</p>
+      <p data-i18n="footerNote">Personiskās mākslinieciskās pārstāvniecības mājaslapas koncepts. Biogrāfiskā informācija pārbaudīta pret 2026. gada publisku festivāla biogrāfiju.</p>
     </footer>
 
     <script src="script.js"></script>
