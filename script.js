@@ -2,6 +2,13 @@ const header = document.querySelector("[data-header]");
 const nav = document.querySelector("[data-nav]");
 const toggle = document.querySelector("[data-nav-toggle]");
 const languageButtons = document.querySelectorAll("[data-lang]");
+const aiToggle = document.querySelector("[data-ai-toggle]");
+const aiPanel = document.querySelector("[data-ai-toggle] + .ai-panel");
+const aiClose = document.querySelector("[data-ai-close]");
+const aiResponse = document.querySelector("[data-ai-response]");
+const aiForm = document.querySelector("[data-ai-form]");
+const shareButtons = document.querySelectorAll("[data-share]");
+const shareMail = document.querySelector("[data-share-mail]");
 
 const translations = {
   lv: {
@@ -77,6 +84,31 @@ const translations = {
     projectFestival: "Festivāla uzstāšanās",
     projectRecording: "Ierakstu projekts",
     footerNote: "Personiskās mākslinieciskās pārstāvniecības mājaslapas koncepts. Biogrāfiskā informācija pārbaudīta pret 2026. gada publisku festivāla biogrāfiju.",
+    shareAria: "Kopīgot šo lapu",
+    shareLabel: "Kopīgot",
+    shareNativeAria: "Kopīgot lapu",
+    shareCopyAria: "Kopēt saiti",
+    shareEmailAria: "Nosūtīt e-pastā",
+    copiedMessage: "Saite nokopēta.",
+    aiAria: "AI concierge",
+    aiLauncher: "Jautāt",
+    aiKicker: "AI concierge",
+    aiTitle: "Jautājiet par Kasparu",
+    aiCloseAria: "Aizvērt",
+    aiSuggestionsAria: "Ieteiktie jautājumi",
+    aiSuggestionBio: "Īsa biogrāfija",
+    aiSuggestionBooking: "Kā uzaicināt?",
+    aiSuggestionRecordings: "Ieraksti",
+    aiWelcome: "Sveiki. Varu palīdzēt atrast biogrāfiju, ierakstus, preses materiālus vai kontaktu viesdiriģēšanai.",
+    aiInputLabel: "Jautājums",
+    aiPlaceholder: "Piemēram: kādi ir viņa galvenie amati?",
+    aiButton: "Uzdot",
+    aiFallback: "Šī informācija nav šajā mājaslapā. Atveru ārēju meklēšanas lapu ar jūsu jautājumu.",
+    aiBioAnswer: "Kaspars Putniņš ir Rīgā dzimis latviešu diriģents, kura darbs saistīts ar profesionālu koru vadību, laikmetīgo kormūziku, sakrālajām tradīcijām un ciešu sadarbību ar komponistiem.",
+    aiBookingAnswer: "Viesdiriģēšanai, meistarklasēm un mākslinieciskiem projektiem izmantojiet sadaļu Kontakti. Forma sagatavo e-pasta pieprasījumu ar izvēlēto projekta veidu.",
+    aiRecordingsAnswer: "Ierakstu sadaļā izcelti projekti ar Igaunijas Filharmonijas kamerkori, tostarp Arvo Pērta un Alfrēda Šnitkes repertuārs, kā arī Latvijas Radio kora plašā diskogrāfija.",
+    aiPositionsAnswer: "Mājaslapā minēti trīs galvenie amati: Latvijas Radio koris kopš 1994. gada, Igaunijas Filharmonijas kamerkoris 2014-2021 un Zviedrijas Radio koris kopš 2021. gada.",
+    aiPressAnswer: "Preses sadaļa paredz īso biogrāfiju, augstas izšķirtspējas foto, izlases repertuāru un tehnisko informāciju koncertorganizatoriem, festivāliem un medijiem.",
     mailSubject: "Pieprasījums",
     mailName: "Vārds",
     mailEmail: "E-pasts",
@@ -155,6 +187,31 @@ const translations = {
     projectFestival: "Festival appearance",
     projectRecording: "Recording project",
     footerNote: "Website concept for personal artistic representation. Biographical claims checked against 2026 public festival biography.",
+    shareAria: "Share this page",
+    shareLabel: "Share",
+    shareNativeAria: "Share page",
+    shareCopyAria: "Copy link",
+    shareEmailAria: "Send by email",
+    copiedMessage: "Link copied.",
+    aiAria: "AI concierge",
+    aiLauncher: "Ask AI",
+    aiKicker: "AI concierge",
+    aiTitle: "Ask about Kaspars",
+    aiCloseAria: "Close",
+    aiSuggestionsAria: "Suggested questions",
+    aiSuggestionBio: "Short biography",
+    aiSuggestionBooking: "How to invite?",
+    aiSuggestionRecordings: "Recordings",
+    aiWelcome: "Hello. I can help with biography, recordings, press resources, or guest-conducting contact details.",
+    aiInputLabel: "Question",
+    aiPlaceholder: "For example: what are his main positions?",
+    aiButton: "Ask",
+    aiFallback: "That information is not on this website. I am opening an external search page with your question.",
+    aiBioAnswer: "Kaspars Putniņš is a Latvian conductor born in Riga, known for professional choir leadership, contemporary choral music, sacred traditions and close collaboration with composers.",
+    aiBookingAnswer: "For guest conducting, masterclasses and artistic projects, use the Booking section. The form prepares an email inquiry with the selected project type.",
+    aiRecordingsAnswer: "The recordings section highlights projects with the Estonian Philharmonic Chamber Choir, including Arvo Pärt and Alfred Schnittke repertoire, plus the Latvian Radio Choir’s broad discography.",
+    aiPositionsAnswer: "The website lists three major positions: Latvian Radio Choir since 1994, Estonian Philharmonic Chamber Choir from 2014-2021 and Swedish Radio Choir since 2021.",
+    aiPressAnswer: "The press section is designed for short biography, high-resolution photos, selected repertoire and technical information for presenters, festivals and media.",
     mailSubject: "Booking inquiry",
     mailName: "Name",
     mailEmail: "Email",
@@ -163,6 +220,7 @@ const translations = {
 };
 
 let currentLanguage = localStorage.getItem("kaspars-language") || "lv";
+const fallbackSearchBase = "https://www.google.com/search?q=";
 
 const syncHeader = () => {
   header.classList.toggle("is-scrolled", window.scrollY > 10);
@@ -204,6 +262,79 @@ const setLanguage = (language) => {
     button.classList.toggle("is-active", isActive);
     button.setAttribute("aria-pressed", String(isActive));
   });
+
+  updateShareLinks();
+};
+
+const getDictionary = () => translations[currentLanguage] || translations.lv;
+
+const updateShareLinks = () => {
+  if (!shareMail) return;
+
+  const url = window.location.href;
+  const subject = encodeURIComponent("Kaspars Putniņš");
+  const body = encodeURIComponent(url);
+  shareMail.href = `mailto:?subject=${subject}&body=${body}`;
+};
+
+const setAiOpen = (isOpen) => {
+  aiPanel.hidden = !isOpen;
+  aiToggle.setAttribute("aria-expanded", String(isOpen));
+};
+
+const writeAiResponse = (message) => {
+  aiResponse.innerHTML = "";
+  const paragraph = document.createElement("p");
+  paragraph.textContent = message;
+  aiResponse.appendChild(paragraph);
+};
+
+const openExternalQuestion = (question) => {
+  const query = encodeURIComponent(`Kaspars Putniņš ${question}`);
+  window.open(`${fallbackSearchBase}${query}`, "_blank", "noopener,noreferrer");
+};
+
+const answerQuestion = (rawQuestion) => {
+  const dictionary = getDictionary();
+  const question = rawQuestion.toLowerCase();
+
+  if (/(bio|biogr|dzim|born|riga|rīga|who|kas ir|quem)/i.test(question)) {
+    return dictionary.aiBioAnswer;
+  }
+
+  if (/(book|booking|invite|contact|kontak|uzaicin|masterclass|meistarklas|festival|convid|contrat)/i.test(question)) {
+    return dictionary.aiBookingAnswer;
+  }
+
+  if (/(record|recording|ierak|album|disc|gramophone|pärt|part|schnittke|šnitke)/i.test(question)) {
+    return dictionary.aiRecordingsAnswer;
+  }
+
+  if (/(position|amati|choir|koris|radio|swedish|estonian|latvian|zviedrij|igaun|latvijas)/i.test(question)) {
+    return dictionary.aiPositionsAnswer;
+  }
+
+  if (/(press|presei|photo|foto|repertoire|rider|media|festival)/i.test(question)) {
+    return dictionary.aiPressAnswer;
+  }
+
+  return "";
+};
+
+const handleAiQuestion = (question) => {
+  const trimmedQuestion = question.trim();
+  if (!trimmedQuestion) return;
+
+  const dictionary = getDictionary();
+  const localAnswer = answerQuestion(trimmedQuestion);
+
+  if (localAnswer) {
+    writeAiResponse(localAnswer);
+    return;
+  }
+
+  writeAiResponse(dictionary.aiFallback);
+  openExternalQuestion(trimmedQuestion);
 };
 
 window.addEventListener("scroll", syncHeader, { passive: true });
@@ -225,6 +356,58 @@ nav.addEventListener("click", (event) => {
 languageButtons.forEach((button) => {
   button.addEventListener("click", () => {
     setLanguage(button.dataset.lang);
+  });
+});
+
+aiToggle.addEventListener("click", () => {
+  setAiOpen(aiPanel.hidden);
+});
+
+aiClose.addEventListener("click", () => {
+  setAiOpen(false);
+});
+
+document.querySelectorAll("[data-ai-question]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const questionType = button.dataset.aiQuestion;
+    const dictionary = getDictionary();
+    const answers = {
+      bio: dictionary.aiBioAnswer,
+      booking: dictionary.aiBookingAnswer,
+      recordings: dictionary.aiRecordingsAnswer,
+    };
+
+    writeAiResponse(answers[questionType] || dictionary.aiFallback);
+  });
+});
+
+aiForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const data = new FormData(form);
+  handleAiQuestion(String(data.get("question") || ""));
+});
+
+shareButtons.forEach((button) => {
+  button.addEventListener("click", async () => {
+    const dictionary = getDictionary();
+    const url = window.location.href;
+
+    try {
+      if (button.dataset.share === "native" && navigator.share) {
+        await navigator.share({
+          title: document.title,
+          url,
+        });
+        return;
+      }
+
+      await navigator.clipboard.writeText(url);
+      writeAiResponse(dictionary.copiedMessage);
+      setAiOpen(true);
+    } catch {
+      window.location.href = `mailto:?subject=${encodeURIComponent(document.title)}&body=${encodeURIComponent(url)}`;
+    }
   });
 });
 

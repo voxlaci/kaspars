@@ -35,6 +35,13 @@
       </div>
     </header>
 
+    <aside class="share-rail" aria-label="Kopīgot šo lapu" data-i18n-attr="aria-label:shareAria">
+      <span data-i18n="shareLabel">Kopīgot</span>
+      <button type="button" data-share="native" aria-label="Kopīgot lapu" data-i18n-attr="aria-label:shareNativeAria">↗</button>
+      <button type="button" data-share="copy" aria-label="Kopēt saiti" data-i18n-attr="aria-label:shareCopyAria">⌁</button>
+      <a href="mailto:?subject=Kaspars%20Putni%C5%86%C5%A1&body=http%3A%2F%2F127.0.0.1%3A8991%2F" aria-label="Nosūtīt e-pastā" data-share-mail data-i18n-attr="aria-label:shareEmailAria">@</a>
+    </aside>
+
     <main id="top">
       <section class="hero">
         <div class="hero-copy">
@@ -190,6 +197,37 @@
         </form>
       </section>
     </main>
+
+    <aside class="ai-concierge" aria-label="AI concierge" data-i18n-attr="aria-label:aiAria">
+      <button class="ai-launcher" type="button" aria-expanded="false" aria-controls="ai-panel" data-ai-toggle>
+        <span>AI</span>
+        <strong data-i18n="aiLauncher">Jautāt</strong>
+      </button>
+      <section class="ai-panel" id="ai-panel" hidden>
+        <div class="ai-panel-header">
+          <div>
+            <p data-i18n="aiKicker">AI concierge</p>
+            <h2 data-i18n="aiTitle">Ask about Kaspars</h2>
+          </div>
+          <button type="button" aria-label="Aizvērt" data-ai-close data-i18n-attr="aria-label:aiCloseAria">×</button>
+        </div>
+        <div class="ai-suggestions" aria-label="Ieteiktie jautājumi" data-i18n-attr="aria-label:aiSuggestionsAria">
+          <button type="button" data-ai-question="bio" data-i18n="aiSuggestionBio">Īsa biogrāfija</button>
+          <button type="button" data-ai-question="booking" data-i18n="aiSuggestionBooking">Kā uzaicināt?</button>
+          <button type="button" data-ai-question="recordings" data-i18n="aiSuggestionRecordings">Ieraksti</button>
+        </div>
+        <div class="ai-response" data-ai-response>
+          <p data-i18n="aiWelcome">Sveiki. Varu palīdzēt atrast biogrāfiju, ierakstus, preses materiālus vai kontaktu viesdiriģēšanai.</p>
+        </div>
+        <form class="ai-form" data-ai-form>
+          <label>
+            <span data-i18n="aiInputLabel">Jautājums</span>
+            <input type="text" name="question" autocomplete="off" data-i18n-attr="placeholder:aiPlaceholder" placeholder="Piemēram: kādi ir viņa galvenie amati?">
+          </label>
+          <button class="button primary" type="submit" data-i18n="aiButton">Uzdot</button>
+        </form>
+      </section>
+    </aside>
 
     <footer class="site-footer">
       <p>Kaspars Putniņš</p>

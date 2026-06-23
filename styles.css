@@ -1,14 +1,17 @@
 :root {
   --ink: #171513;
-  --muted: #6d655d;
-  --paper: #f7f3ed;
-  --panel: #fffaf2;
+  --muted: #75686a;
+  --paper: #f8f5f2;
+  --panel: #fffdf9;
   --line: rgba(23, 21, 19, 0.14);
-  --gold: #b48a4a;
-  --green: #24493f;
-  --blue: #2d506f;
-  --rose: #8d4e4f;
-  --shadow: 0 24px 80px rgba(23, 21, 19, 0.14);
+  --gold: #c0a15f;
+  --green: #23483e;
+  --blue: #243f58;
+  --rose: #9e3039;
+  --latvia-red: #9e3039;
+  --latvia-red-dark: #741f29;
+  --latvia-red-soft: #f1e2e3;
+  --shadow: 0 24px 80px rgba(84, 24, 31, 0.16);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--ink);
   background: var(--paper);
@@ -26,8 +29,8 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    linear-gradient(90deg, rgba(36, 73, 63, 0.05), transparent 32%),
-    linear-gradient(180deg, #fbf8f2 0%, var(--paper) 45%, #efe8de 100%);
+    linear-gradient(90deg, rgba(158, 48, 57, 0.08), transparent 36%),
+    linear-gradient(180deg, #fffdf9 0%, var(--paper) 46%, #f1e8e4 100%);
 }
 
 a {
@@ -50,7 +53,7 @@ img {
   align-items: center;
   justify-content: space-between;
   padding: 18px clamp(18px, 4vw, 56px);
-  background: rgba(247, 243, 237, 0.82);
+  background: rgba(248, 245, 242, 0.84);
   border-bottom: 1px solid transparent;
   backdrop-filter: blur(18px);
   transition: border-color 180ms ease, background 180ms ease;
@@ -58,7 +61,7 @@ img {
 
 .site-header.is-scrolled {
   border-color: var(--line);
-  background: rgba(247, 243, 237, 0.94);
+  background: rgba(248, 245, 242, 0.96);
 }
 
 .brand {
@@ -75,7 +78,7 @@ img {
   width: 42px;
   height: 42px;
   color: #fff;
-  background: var(--ink);
+  background: var(--latvia-red);
   border-radius: 50%;
   font-size: 13px;
 }
@@ -105,7 +108,7 @@ img {
 
 .nav-action {
   color: var(--ink);
-  border-bottom: 2px solid var(--gold);
+  border-bottom: 2px solid var(--latvia-red);
 }
 
 .language-switch {
@@ -132,7 +135,49 @@ img {
 
 .language-switch button.is-active {
   color: #fff;
-  background: var(--ink);
+  background: var(--latvia-red);
+}
+
+.share-rail {
+  position: fixed;
+  z-index: 18;
+  top: 50%;
+  left: clamp(10px, 1.8vw, 22px);
+  display: grid;
+  gap: 8px;
+  transform: translateY(-50%);
+}
+
+.share-rail span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.share-rail button,
+.share-rail a {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(158, 48, 57, 0.22);
+  border-radius: 50%;
+  color: var(--latvia-red);
+  background: rgba(255, 253, 249, 0.88);
+  box-shadow: 0 12px 32px rgba(84, 24, 31, 0.12);
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+}
+
+.share-rail button:hover,
+.share-rail a:hover {
+  color: #fff;
+  background: var(--latvia-red);
 }
 
 .nav-toggle {
@@ -170,8 +215,9 @@ img {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(110deg, rgba(180, 138, 74, 0.18), transparent 38%),
-    radial-gradient(circle at 85% 14%, rgba(45, 80, 111, 0.14), transparent 28%);
+    linear-gradient(110deg, rgba(158, 48, 57, 0.22), transparent 39%),
+    radial-gradient(circle at 85% 14%, rgba(158, 48, 57, 0.16), transparent 28%),
+    linear-gradient(180deg, transparent 44%, rgba(255, 255, 255, 0.66) 44%, rgba(255, 255, 255, 0.66) 56%, transparent 56%);
 }
 
 .hero-copy,
@@ -183,7 +229,7 @@ img {
 .eyebrow,
 .section-kicker {
   margin: 0 0 14px;
-  color: var(--green);
+  color: var(--latvia-red);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0;
@@ -250,8 +296,8 @@ h3 {
 
 .button.primary {
   color: #fff;
-  background: var(--ink);
-  border-color: var(--ink);
+  background: var(--latvia-red);
+  border-color: var(--latvia-red);
 }
 
 .button.ghost {
@@ -260,7 +306,7 @@ h3 {
 
 .hero-portrait {
   align-self: center;
-  border: 1px solid rgba(23, 21, 19, 0.18);
+  border: 1px solid rgba(158, 48, 57, 0.2);
   background: var(--panel);
   box-shadow: var(--shadow);
 }
@@ -300,7 +346,7 @@ h3 {
 .intro-band {
   padding: clamp(36px, 6vw, 76px) clamp(20px, 5vw, 72px);
   color: #fff;
-  background: var(--green);
+  background: var(--latvia-red);
 }
 
 .intro-band p {
@@ -370,7 +416,7 @@ h3 {
 .recording-list span {
   display: inline-block;
   margin-bottom: 34px;
-  color: var(--rose);
+  color: var(--latvia-red);
   font-size: 13px;
   font-weight: 800;
 }
@@ -383,7 +429,7 @@ h3 {
 }
 
 .repertoire {
-  background: #f1ece4;
+  background: var(--latvia-red-soft);
 }
 
 .repertoire-grid {
@@ -416,12 +462,12 @@ h3 {
 }
 
 .press-section {
-  background: var(--blue);
+  background: var(--latvia-red-dark);
   color: #fff;
 }
 
 .press-section .section-kicker {
-  color: #d7c092;
+  color: #f8d9dc;
 }
 
 .press-actions {
@@ -464,6 +510,137 @@ textarea {
   font: inherit;
 }
 
+.ai-concierge {
+  position: fixed;
+  z-index: 19;
+  right: clamp(14px, 2.4vw, 32px);
+  bottom: clamp(14px, 2.4vw, 32px);
+}
+
+.ai-launcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 8px 16px 8px 8px;
+  border: 1px solid rgba(158, 48, 57, 0.28);
+  border-radius: 999px;
+  color: #fff;
+  background: var(--latvia-red);
+  box-shadow: 0 22px 60px rgba(84, 24, 31, 0.28);
+  font: inherit;
+  cursor: pointer;
+}
+
+.ai-launcher span {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: var(--latvia-red);
+  background: #fff;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.ai-launcher strong {
+  font-size: 14px;
+}
+
+.ai-panel {
+  position: absolute;
+  right: 0;
+  bottom: 70px;
+  width: min(380px, calc(100vw - 28px));
+  padding: 18px;
+  border: 1px solid rgba(158, 48, 57, 0.2);
+  background: rgba(255, 253, 249, 0.96);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.ai-panel-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ai-panel-header p {
+  margin-bottom: 4px;
+  color: var(--latvia-red);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.ai-panel-header h2 {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 22px;
+  line-height: 1.1;
+}
+
+.ai-panel-header button {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  background: #fff;
+  font: inherit;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ai-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.ai-suggestions button {
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid rgba(158, 48, 57, 0.18);
+  border-radius: 999px;
+  color: var(--latvia-red);
+  background: #fff;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.ai-response {
+  min-height: 94px;
+  margin-bottom: 14px;
+  padding: 14px;
+  color: #3b3334;
+  background: var(--latvia-red-soft);
+  border-left: 4px solid var(--latvia-red);
+  line-height: 1.5;
+}
+
+.ai-response p {
+  margin-bottom: 0;
+}
+
+.ai-form {
+  display: grid;
+  gap: 12px;
+}
+
+.ai-form .button {
+  justify-self: start;
+  min-height: 42px;
+}
+
 textarea {
   resize: vertical;
 }
@@ -479,7 +656,7 @@ textarea {
   gap: 20px;
   padding: 28px clamp(20px, 5vw, 72px);
   color: rgba(255, 255, 255, 0.76);
-  background: var(--ink);
+  background: var(--latvia-red-dark);
   font-size: 13px;
 }
 
@@ -533,6 +710,45 @@ textarea {
     background: var(--panel);
     border: 1px solid var(--line);
     box-shadow: var(--shadow);
+  }
+
+  .share-rail {
+    top: auto;
+    left: 14px;
+    bottom: 14px;
+    display: flex;
+    align-items: center;
+    transform: none;
+  }
+
+  .share-rail span {
+    display: none;
+  }
+
+  .share-rail button,
+  .share-rail a {
+    width: 38px;
+    height: 38px;
+  }
+
+  .ai-concierge {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .ai-launcher {
+    min-height: 46px;
+    padding: 6px 12px 6px 6px;
+  }
+
+  .ai-launcher span {
+    width: 34px;
+    height: 34px;
+  }
+
+  .ai-panel {
+    right: -2px;
+    bottom: 58px;
   }
 
   .site-nav.is-open {
