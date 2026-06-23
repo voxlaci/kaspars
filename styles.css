@@ -689,6 +689,10 @@ textarea {
 }
 
 @media (max-width: 760px) {
+  body {
+    padding-bottom: 76px;
+  }
+
   .header-actions {
     gap: 10px;
   }
