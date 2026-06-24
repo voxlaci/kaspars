@@ -23,11 +23,13 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   background:
     linear-gradient(90deg, rgba(158, 48, 57, 0.08), transparent 36%),
     linear-gradient(180deg, #fffdf9 0%, var(--paper) 46%, #f1e8e4 100%);
@@ -392,6 +394,12 @@ h3 {
   gap: clamp(28px, 6vw, 92px);
 }
 
+.split > *,
+.press-section > *,
+.contact > * {
+  min-width: 0;
+}
+
 .body-copy {
   color: #35302b;
   font-size: clamp(18px, 2vw, 22px);
@@ -499,6 +507,7 @@ h3 {
 
 .press-actions a {
   flex: 1 1 220px;
+  min-width: 0;
   min-height: 64px;
   padding: 20px;
   border: 1px solid rgba(255, 255, 255, 0.28);
@@ -728,6 +737,17 @@ textarea {
     display: block;
   }
 
+  .hero {
+    align-items: end;
+    padding-bottom: 132px;
+  }
+
+  .hero::before {
+    background:
+      linear-gradient(90deg, rgba(21, 13, 14, 0.9) 0%, rgba(59, 20, 25, 0.72) 45%, rgba(21, 13, 14, 0.12) 100%),
+      linear-gradient(0deg, rgba(21, 13, 14, 0.82) 0%, rgba(21, 13, 14, 0.22) 44%, transparent 76%, rgba(21, 13, 14, 0.36) 100%);
+  }
+
   .site-nav {
     position: absolute;
     top: 76px;
@@ -799,12 +819,12 @@ textarea {
   }
 
   .hero-copy {
-    max-width: 100%;
+    max-width: 78%;
   }
 
   .hero-portrait img {
     min-height: 100%;
-    object-position: 64% center;
+    object-position: 78% center;
   }
 
   .hero-notes,
