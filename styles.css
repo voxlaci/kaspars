@@ -201,9 +201,9 @@ img {
 .hero {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.72fr);
-  gap: clamp(28px, 5vw, 72px);
-  align-items: end;
+  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.86fr);
+  gap: clamp(32px, 5vw, 86px);
+  align-items: center;
   min-height: 94svh;
   padding: 136px clamp(20px, 5vw, 72px) 72px;
   overflow: hidden;
@@ -309,20 +309,16 @@ h3 {
   border: 1px solid rgba(158, 48, 57, 0.2);
   background: var(--panel);
   box-shadow: var(--shadow);
+  overflow: hidden;
 }
 
 .hero-portrait img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  min-height: clamp(560px, 72svh, 820px);
+  aspect-ratio: 5 / 7;
   object-fit: cover;
   object-position: center;
   filter: saturate(0.86) contrast(1.04);
-}
-
-.hero-portrait figcaption {
-  padding: 12px 14px;
-  color: var(--muted);
-  font-size: 12px;
 }
 
 .hero-notes {
@@ -677,6 +673,10 @@ textarea {
     max-width: 560px;
   }
 
+  .hero-portrait img {
+    min-height: clamp(460px, 68svh, 640px);
+  }
+
   .position-grid,
   .repertoire-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -769,6 +769,10 @@ textarea {
 
   h1 {
     font-size: clamp(58px, 18vw, 92px);
+  }
+
+  .hero-portrait img {
+    min-height: clamp(390px, 58svh, 540px);
   }
 
   .hero-notes,
