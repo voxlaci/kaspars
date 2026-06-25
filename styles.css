@@ -819,12 +819,12 @@ textarea {
   }
 
   .hero-copy {
-    max-width: min(54%, 220px);
+    max-width: min(50%, 206px);
   }
 
   .hero-portrait img {
     min-height: 100%;
-    object-position: 25% center;
+    object-position: 20% center;
   }
 
   .hero-notes,
